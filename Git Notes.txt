@@ -33,3 +33,17 @@ Committing and Pushing to Github.com (Through Github Desktop)
 	You must put in a Summary to Commit a change
 	Clicking the Commit button will just stage the change but not push it to whatever branch you’re on.
 	You’ll have to click the Push button at the top in order for the change to actually make it to Github.com
+
+GIT Commands
+git status
+git add [name of file]
+git commit -m “your message here”
+git push
+
+Committing and Pushing to Github.com (Through the command line)
+	Start by cding into the correct folder, like you have been
+	I like to start by using git status to see what has changed
+	Whenever changes have been made, you need to use git add [name of file] to be able to commit. Note: When a file name has spaces in it, put the file name in quotation marks.
+	Use git commit -m “whatever your commit message should be” to commit the changes
+	They still will not be on Github.com at this point. use git push to complete the push of all your commits to Github.
+	Note: You can git status between these steps to make sure things are happening like you expect.
