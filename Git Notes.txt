@@ -27,3 +27,9 @@ Starting a new repo V2
 	Use the following commands in the command line:
 		git remote add origin [URL of Github.com repo]
 		git push -u origin master
+
+Committing and Pushing to Github.com (Through Github Desktop)
+	Whenever you make changes to the files in your local repo, the changes will pop up in Github Desktop.
+	You must put in a Summary to Commit a change
+	Clicking the Commit button will just stage the change but not push it to whatever branch you’re on.
+	You’ll have to click the Push button at the top in order for the change to actually make it to Github.com
