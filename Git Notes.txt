@@ -1,0 +1,7 @@
+GIT Notes
+
+Github Desktop
+Download here: https://desktop.github.com/
+
+Adding an existing repo
+  File > Clone Repository > URL > Enter URL from Github
