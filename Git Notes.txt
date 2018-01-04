@@ -5,3 +5,25 @@ Download here: https://desktop.github.com/
 
 Adding an existing repo
   File > Clone Repository > URL > Enter URL from Github
+
+Starting a new repo
+	Not sure the correct way to do this, but this is A way.
+	First create a new repo on Github.com
+	Then create a folder with the rest of the repos on your machine
+	Via the command line, cd into the folder (cd = change directory, ls = list out the contents of your current directory, cd .. = back out one folder level)
+	Perform the following actions:
+		echo "# test" >> README.md
+		git init
+		git add README.md
+		git commit -m "first commit"
+		git remote add origin [the URL of your repo on Github]
+		git push -u origin master
+	At this point, you should have a properly set up repo
+
+Starting a new repo V2
+	In Github Desktop, choose File > New Repository. This will add a new folder into your folder that houses all your other repos.
+	Navigate to Github.com and create a new repository. Make sure you name it the same thing as that folder you created.
+	In the command line, cd into the repo folder.
+	Use the following commands in the command line:
+		git remote add origin [URL of Github.com repo]
+		git push -u origin master
