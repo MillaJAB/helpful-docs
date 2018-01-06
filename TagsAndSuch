@@ -1,20 +1,27 @@
 <html>
-  Blah blah
+
 <canvas id="gameCanvas" width="800" height="600"></canvas>
-//Creates canvas space where your game will be
+
 <script>
 var canvas;
 var canvasContext;
+var ballX = 50;
 
-window.onload = function() { //Doesn't run whatever is in the brackets until everything loads in
-  console.log("Hello World");
+window.onload = function() { 
   canvas = document.getElementById('gameCanvas');
   canvasContext = canvas.getContext('2d');
-  //Make sure to draw background first so everything else gets drawn over it
-  canvasContext.fillStyle = 'black';
-  canvasContext.fillRect(0,0,canvas.width, canvas.height);
-  //Note fillStyle comes before the Rect. Rect will refer to the style immediately above it.
+  setInterval(drawEverything, 10);
  }
+ 
+ function drawEverything() {
+	ballX = ballX + 5;
+	console.log(ballX);
+	canvasContext.fillStyle = 'black';
+	canvasContext.fillRect(0,0,canvas.width, canvas.height);
+	canvasContext.fillStyle = 'red';
+	canvasContext.fillRect(ballX,100,10,10);
+ }
+ 
 </script>
 
 </html>
