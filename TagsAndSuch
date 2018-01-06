@@ -1,9 +1,16 @@
 <html>
   Blah blah
-  
+<canvas id="gameCanvas" width="800" height="600"></canvas> //Creates canvas space where your game will be
 <script>
-window.onload = function() {
+var canvas;
+var canvasContext;
+
+window.onload = function() { //Doesn't run whatever is in the brackets until everything loads in
   console.log("Hello World");
+  canvas = document.getElementById('gameCanvas');
+  canvasContext = canvas.getContext('2d');
+  canvasContext.fillStyle = 'black';
+  canvasContext.fillRect(0,0,canvas.width, canvas.height);
  }
 </script>
 
