@@ -14,12 +14,19 @@ window.onload = function() {
   //Not quite sure what this does, but I bet it allows the user to use those shape drawing functions below
   canvasContext = canvas.getContext('2d');
   var framesPerSecond = 30;
-  //Sets the interval for 1000 milliseconds, which is one second, divided by 30, which gives you the right speed for animation
-  setInterval(drawEverything, 1000/framesPerSecond);
+  //Creates a function inside setInterval that moves and draws everything in an interval of 1000 milliseconds, which is one second, divided by 30, which gives you the right speed for animation
+  //You could also create another function with moveEverything and draw Everything in it and write it as setInterval(callBothFunction, 1000/framesPerSecond); The above is just an inline way to do it where you're not writing another function.
+  setInterval(function() {
+  	moveEverything();
+	drawEverything();
+  }, 1000/framesPerSecond);
+ }
+ 
+ function moveEverything() {
+ 	ballX = ballX + 5;
  }
  
  function drawEverything() {
-	ballX = ballX + 5;
 	//The style is set before the Rect is drawn.
 	canvasContext.fillStyle = 'black';
 	//fillRect will respond to whatever style is immediately above it
