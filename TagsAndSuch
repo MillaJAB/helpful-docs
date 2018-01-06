@@ -1,0 +1,10 @@
+<html>
+  Blah blah
+  
+<script>
+window.onload = function() {
+  console.log("Hello World");
+ }
+</script>
+
+</html>
