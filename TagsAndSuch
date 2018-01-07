@@ -1,25 +1,57 @@
+Note: This actual code won't work. I'm just trying to remember different useful functions and their place in the doc.
+
 <html>
+
 // This creates the canvas which the game will be drawn in
 <canvas id="gameCanvas" width="800" height="600"></canvas>
 
 <script>
+// Global variables are at the top
 var canvas;
 var canvasContext;
 var ballX = 50;
+etc...
+
+function calculateMousePos(evt) {
+	// This gets the bounding box of the canvas, so it knows it can't go beyond that
+	var rect = canvas.getBoundingClientRect();
+	// Not sure what this does
+	var root = document.documentElement;
+	// Sets x and y independent of wherever the window is or how it's scrolled...or something. lol Uses rect and root that were just defined.
+	var mouseX = evt.clientX - rect.left - root.scrollLeft;
+	var mouseY = evt.clientY - rect.top - root.scrollTop;
+	return {
+		x: mouseX,
+		y:mouseY
+	};
+}
 
 // This keeps the things inside the function from running until the window loads in.
 window.onload = function() { 
+
   //A variable to make accessing the game canvas easier
   canvas = document.getElementById('gameCanvas');
+  
   //Not quite sure what this does, but I bet it allows the user to use those shape drawing functions below
   canvasContext = canvas.getContext('2d');
+  
   var framesPerSecond = 30;
+  
   //Creates a function inside setInterval that moves and draws everything in an interval of 1000 milliseconds, which is one second, divided by 30, which gives you the right speed for animation
   //You could also create another function with moveEverything and draw Everything in it and write it as setInterval(callBothFunction, 1000/framesPerSecond); The above is just an inline way to do it where you're not writing another function.
   setInterval(function() {
   	moveEverything();
 	drawEverything();
   }, 1000/framesPerSecond);
+  
+  // On every mouse move, the following function is triggered.
+    canvas.addEventListener('mousemove',
+	function(evt) {
+		var mousePos = calculateMousePos(evt);
+		paddle1Y = mousePos.y -(PADDLE_HEIGHT/2);
+	});
+ }
+  
  }
  
  function moveEverything() {
@@ -35,6 +67,8 @@ window.onload = function() {
 	canvasContext.fillStyle = 'red';
 	canvasContext.fillRect(ballX,100,10,10);
  }
+ 
+ 
  
 </script>
 
