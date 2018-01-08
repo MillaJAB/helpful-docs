@@ -1,6 +1,40 @@
 <html>
 <canvas id="gameCanvas" width="800" height="600"></canvas>
 <script>
+//Global variables
+var canvas;
+var canvasContext;
 
+function calculateMousePos(evt) {
+	var rect = canvas.getBoundingClientRect();
+	var root = document.documentElement;
+	var mouseX = evt.clientX - rect.left - root.scrollLeft;
+	var mouseY = evt.clientY - rect.top - root.scrollTop;
+	return {
+		x: mouseX,
+		y:mouseY
+	};
+}
+
+window.onload = function() { 
+  canvas = document.getElementById('gameCanvas');  
+  canvasContext = canvas.getContext('2d');
+  
+  var framesPerSecond = 30;
+  setInterval(function() {
+	moveEverything();
+	drawEverything();
+  }, 1000/framesPerSecond);
+  
+  canvas.addEventListener('mousemove',
+	function(evt) {
+		var mousePos = calculateMousePos(evt);
+		paddle1Y = mousePos.y -(PADDLE_HEIGHT/2);
+	});
+ }
+ 
+ function drawEverything() {
+	colorRect(0, 0, canvas.width, canvas.height, 'black');
+  
 </script>
 </html>
