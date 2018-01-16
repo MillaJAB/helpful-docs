@@ -6,6 +6,10 @@ Note: This actual code won't work. I'm just trying to remember different useful 
 <canvas id="gameCanvas" width="800" height="600"></canvas>
 
 <script>
+// Used for displaying an image using code in window.onload
+var carPic = document.createElement("img");
+var carPicLoaded = false;
+
 // Global variables are at the top
 var canvas;
 var canvasContext;
@@ -51,6 +55,11 @@ window.onload = function() {
 		paddle1Y = mousePos.y -(PADDLE_HEIGHT/2);
 	});
  }
+	// When the pic loads, sets variable to true so you know it's loaded and then sets the source to the image name in the same folder
+	carPic.onload = function() {
+		carPicLoaded = true;
+	}
+	carPic.src = "player1car.png";
   
  }
  
