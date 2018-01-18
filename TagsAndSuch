@@ -85,7 +85,11 @@ window.onload = function() {
 	canvasContext.drawImage(useBitmap, -useBitmap.width/2, -useBitmap.height/2);
 	canvasContext.restore(); 
  
- 
+// Uses sine and cosine to find car location when you have the speed and car angle
+function carMove() {
+	carX += Math.cos(carAng) * carSpeed;
+	carY += Math.sin(carAng) * carSpeed;
+
 </script>
 
 </html>
