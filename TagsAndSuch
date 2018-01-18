@@ -77,6 +77,13 @@ window.onload = function() {
 	canvasContext.fillRect(ballX,100,10,10);
  }
  
+ // Something to do with rotation. Not sure.
+ function drawBitmapCenteredWithRotation(useBitmap, atX, atY, withAng) {
+	canvasContext.save();
+	canvasContext.translate(atX, atY);
+	canvasContext.rotate(withAng);
+	canvasContext.drawImage(useBitmap, -useBitmap.width/2, -useBitmap.height/2);
+	canvasContext.restore(); 
  
  
 </script>
