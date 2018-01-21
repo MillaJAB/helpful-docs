@@ -30,6 +30,15 @@ function calculateMousePos(evt) {
 	};
 }
 
+// This prints the key code of the key pressed when pressed, using the event listener in onload
+function keyPressed(evt) {
+	console.log("Key pressed: " + evt.keyCode);
+}
+
+function keyReleased(evt) {
+	console.log("Key released: " + evt.keyCode);
+}
+
 // This keeps the things inside the function from running until the window loads in.
 window.onload = function() { 
 
@@ -55,6 +64,10 @@ window.onload = function() {
 		paddle1Y = mousePos.y -(PADDLE_HEIGHT/2);
 	});
  }
+ 	// What to put for acknowledging key presses
+ 	document.addEventListener('keydown', keyPressed);
+	document.addEventListener('keyup', keyReleased);
+ 
 	// When the pic loads, sets variable to true so you know it's loaded and then sets the source to the image name in the same folder
 	carPic.onload = function() {
 		carPicLoaded = true;
@@ -77,8 +90,19 @@ window.onload = function() {
 	canvasContext.fillRect(ballX,100,10,10);
  }
  
+ // Something to do with rotation. Not sure.
+ function drawBitmapCenteredWithRotation(useBitmap, atX, atY, withAng) {
+	canvasContext.save();
+	canvasContext.translate(atX, atY);
+	canvasContext.rotate(withAng);
+	canvasContext.drawImage(useBitmap, -useBitmap.width/2, -useBitmap.height/2);
+	canvasContext.restore(); 
  
- 
+// Uses sine and cosine to find car location when you have the speed and car angle
+function carMove() {
+	carX += Math.cos(carAng) * carSpeed;
+	carY += Math.sin(carAng) * carSpeed;
+
 </script>
 
 </html>
